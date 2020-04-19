@@ -1,5 +1,7 @@
 package com.javashitang.security.controller;
 
+import com.javashitang.security.annotation.AuthenRole;
+import com.javashitang.security.common.TestRoleHandleFill;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -10,4 +12,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("resource")
 public class UserManagerController {
 
+    @AuthenRole(id = TestRoleHandleFill.DEMO_AUT_ONE, parentId = TestRoleHandleFill.ROOT_ID)
+    @RequestMapping("resource")
+    public String test1() {
+        return "test";
+    }
 }
